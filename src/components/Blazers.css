@@ -109,7 +109,7 @@
   align-items: flex-start;
   justify-content: center;
   padding-right: 80px;
-  background-image: url(images/bg-03.jpg);
+  background-image: url(/images/bg-03.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
