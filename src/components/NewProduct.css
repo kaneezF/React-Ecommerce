@@ -1,0 +1,44 @@
+/* Product Images */
+.new-products-img {
+  width: 311px;
+  height: 325px;
+}
+
+.info{
+      gap: 30px;
+    padding: 70px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  background-color: #f1f1f1;
+  margin-top: 60px;
+}
+
+.info-title p{
+  font-size: 14px;
+  color: #424242;
+   font-family: "Montserrat", sans-serif;
+   margin-top: 12px;
+}
+
+.info-title h4{
+   font-family: "Cormorant Garamond", serif;
+   font-style: italic;
+  font-size: 31px;
+}
+
+.info-title i{
+      font-size: 30px;
+}
+
+@media (max-width:768px) {
+  .info{
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+
+.img-first    { background-image: url(/images/first-thumbnail_black.png); }
+.img-second   { background-image: url(/images/second_thumbnail.jpg); }
+.img-third    { background-image: url(/images/third-thumbnail_black.jpg); }
+.img-fourth   { background-image: url(/images/fourth-thumbnail_black.png); }
