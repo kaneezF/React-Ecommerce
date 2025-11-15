@@ -4,9 +4,10 @@ import { IoCartOutline } from "react-icons/io5";
 import { IoSearchOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { CartContext } from "../context/CartContextProvider";
 
-export default function Header({ cartCount }) {
+export default function Header() {
   // const location = useLocation();
 
   // statefor hamburger menu
@@ -18,6 +19,8 @@ export default function Header({ cartCount }) {
   useEffect(() => {
     console.log("Menu open:", isMenuOpen);
   }, [isMenuOpen]);
+
+  const {cart} = useContext(CartContext);
 
   // const isLightPage = location.pathname.includes("/product");
   return (
@@ -45,7 +48,7 @@ export default function Header({ cartCount }) {
         <section className="right">
           <button className="icons">
            <NavLink to={"cart"}><IoCartOutline size={40} /></NavLink> 
-            <span className="cartCount">{cartCount}</span> {/* 🛒 show cart count */}
+            <span className="cartCount">{cart.length}</span> {/* 🛒 show cart count */}
           </button>
           <button className="icons">
             <IoSearchOutline size={30} />
@@ -85,7 +88,7 @@ export default function Header({ cartCount }) {
             <section className="mobile-right">
               <button className="mobile-icons">
                <NavLink to={"cart"}><IoCartOutline size={30} /></NavLink> 
-                <span className="cartCount">{cartCount}</span> {/* 🛒 show cart count */}
+                <span className="cartCount">{cart.length}</span> {/* 🛒 show cart count */}
               </button>
               <button className="icons">
                 <IoSearchOutline size={30} />

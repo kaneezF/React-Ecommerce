@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import ProductCard from "./ProductCard";
 
 export default function Shop() {
   return (
@@ -9,6 +10,7 @@ export default function Shop() {
         showPostTitle={false}
         showButton={false}
       />
+      <ProductCard/>
     </>
   );
 }

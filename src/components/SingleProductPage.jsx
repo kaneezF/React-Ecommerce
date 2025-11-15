@@ -98,13 +98,15 @@ import { useParams, useSearchParams } from "react-router-dom";
 import products from "../data/products";
 import "./ProductCard.css";
 import "./SingleProductCard.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import AdditionalInfo from "./AdditionalInfo";
+import { CartContext } from "../context/CartContextProvider";
 
-export default function SingleProductPage({ addToCart, cartCount }) {
+export default function SingleProductPage() {
   const { id } = useParams(); // Get product ID from URL
   const [searchParams, setSearchParams] = useSearchParams(); // ✅ Correctly use useSearchParams
   const selectedColor = searchParams.get("color"); // get color query param
+  const {addToCart} = useContext(CartContext)
 
   const product = products.find((p) => p.id === Number(id));
   if (!product) return <p>Product not found</p>;

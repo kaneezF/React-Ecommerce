@@ -41,15 +41,12 @@ export default function AdditionalInfo({ product }) {
                     <tr>
                     <th>Size</th>
                     <td>{product.sizes.join(", ")}</td>
-    
                 </tr>
                 <tr>
                     <th>Color</th>
                     <td>{product.colors.join(", ")}</td>
-                
                 </tr>
                 </tbody>
-                
             </table>
         </div>
         <div className={toggleState === 3 ? 'content active-content' : "content"}><ReviewForm product={product}/></div>
