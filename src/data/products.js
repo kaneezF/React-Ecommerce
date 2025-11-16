@@ -74,6 +74,60 @@ const products = [
     description:
       "Whether you’re leading a meeting or making a statement at a professional event, our Power Suit Ensemble effortlessly blends professionalism with contemporary flair, ensuring you exude confidence and leave a lasting impression wherever your ambitions take you.",
   },
+  {
+    id: 5,
+    imageClass: "img-fourth",
+    category: "Formal",
+    name: "Power Suit Ensemble",
+    price: 180,
+    sizes: ["XL", "L", "M", "S", "XS"],
+    colors: ["black", "green", "red", "white"],
+     images: {
+      black: "fourth-thumbnail_black.png",
+      green: "fourth-thumbnail_green.png",
+      red: "fourth-thumbnail_red.png",
+      white: "fourth_thumbnail.jpg",
+    },
+    new_description:"Step into the boardroom with confidence and style in our Power Suit Ensemble – a collection meticulously designed for the modern, empowered woman. Tailored to perfection, each piece exudes sophistication, commanding attention with clean lines and refined details. Whether you’re leading a meeting or making a statement at a professional event, our Power Suit Ensemble effortlessly blends professionalism with contemporary flair, ensuring you exude confidence and leave a lasting impression wherever your ambitions take you.",
+    description:
+      "Whether you’re leading a meeting or making a statement at a professional event, our Power Suit Ensemble effortlessly blends professionalism with contemporary flair, ensuring you exude confidence and leave a lasting impression wherever your ambitions take you.",
+  },
+  {
+    id: 6,
+    imageClass: "img-fourth",
+    category: "Formal",
+    name: "Power Suit Ensemble",
+    price: 180,
+    sizes: ["XL", "L", "M", "S", "XS"],
+    colors: ["black", "green", "red", "white"],
+     images: {
+      black: "fourth-thumbnail_black.png",
+      green: "fourth-thumbnail_green.png",
+      red: "fourth-thumbnail_red.png",
+      white: "fourth_thumbnail.jpg",
+    },
+    new_description:"Step into the boardroom with confidence and style in our Power Suit Ensemble – a collection meticulously designed for the modern, empowered woman. Tailored to perfection, each piece exudes sophistication, commanding attention with clean lines and refined details. Whether you’re leading a meeting or making a statement at a professional event, our Power Suit Ensemble effortlessly blends professionalism with contemporary flair, ensuring you exude confidence and leave a lasting impression wherever your ambitions take you.",
+    description:
+      "Whether you’re leading a meeting or making a statement at a professional event, our Power Suit Ensemble effortlessly blends professionalism with contemporary flair, ensuring you exude confidence and leave a lasting impression wherever your ambitions take you.",
+  },
+  {
+    id: 7,
+    imageClass: "img-fourth",
+    category: "Formal",
+    name: "Power Suit Ensemble",
+    price: 180,
+    sizes: ["XL", "L", "M", "S", "XS"],
+    colors: ["black", "green", "red", "white"],
+     images: {
+      black: "fourth-thumbnail_black.png",
+      green: "fourth-thumbnail_green.png",
+      red: "fourth-thumbnail_red.png",
+      white: "fourth_thumbnail.jpg",
+    },
+    new_description:"Step into the boardroom with confidence and style in our Power Suit Ensemble – a collection meticulously designed for the modern, empowered woman. Tailored to perfection, each piece exudes sophistication, commanding attention with clean lines and refined details. Whether you’re leading a meeting or making a statement at a professional event, our Power Suit Ensemble effortlessly blends professionalism with contemporary flair, ensuring you exude confidence and leave a lasting impression wherever your ambitions take you.",
+    description:
+      "Whether you’re leading a meeting or making a statement at a professional event, our Power Suit Ensemble effortlessly blends professionalism with contemporary flair, ensuring you exude confidence and leave a lasting impression wherever your ambitions take you.",
+  },
 ];
 
 export default products;

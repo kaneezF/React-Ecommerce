@@ -46,7 +46,7 @@ import "./ProductCard.css";
 import products from "../data/products";
 import { Link } from "react-router-dom";
 
-export default function ProductCard() {
+export default function ProductCard({limit}) {
   const [selectedColors, setSelectedColors] = useState({});
 
   const handleColorClick = (productId, color) => {
@@ -56,11 +56,14 @@ export default function ProductCard() {
     }));
   };
 
+  // **If limit is passed, show only limited items**
+  const itemsToShow = limit ? products.slice(0, limit) : products;
+
   return (
     <>
       <p className="second-title">Most Popular</p>
       <div className="second">
-        {products.map((product, index) => {
+        {itemsToShow.map((product, index) => {
           const selectedColor = selectedColors[product.id] || "black"; // default to black
           const imagePath = `/images/${product.images[selectedColor]}`;
 

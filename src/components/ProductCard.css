@@ -95,6 +95,8 @@
 
 /* Second Section */
 .second {
+      max-width: 70%;
+    margin: 0 auto;
   background-attachment: fixed;
   display: flex;
   align-items: center;

@@ -14,10 +14,10 @@ export default function Home() {
         posttitle="Effortlessly blend comfort and style with our Casual & Everyday collection, featuring cozy sweaters, 
         versatile denim, laid-back tees, and relaxed-fit joggers for your everyday adventures"
       />
-      <ProductCard />
+      <ProductCard limit={4} />
       <BagsSection />
       <Blazers />
-      <NewProduct />
+      <NewProduct limit={4}/>
       {/* <Shop/> */}
     </>
   );

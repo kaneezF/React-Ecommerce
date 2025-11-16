@@ -2,8 +2,12 @@ import "./NewProduct.css";
 import products from "../data/products";
 import { Link } from "react-router-dom";
 
-export default function NewProduct() {
+export default function NewProduct({limit}) {
+  // **If limit is passed, show only limited items**
+  const itemsToShow = limit ? products.slice(0, limit) : products;
+
   return (
+    
     <>
       <div className="info">
         <div className="info-title">
@@ -41,7 +45,7 @@ export default function NewProduct() {
 
       <p className="second-title">Newest Products</p>
       <div className="second">
-        {products.map((product, index) => (
+        {itemsToShow.map((product, index) => (
           <Link
             key={index}
             to={`/product/${product.id}`}
