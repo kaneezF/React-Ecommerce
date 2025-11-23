@@ -3,7 +3,7 @@ import products from "../data/products";
 import { Link } from "react-router-dom";
 
 export default function NewProduct({limit}) {
-  // **If limit is passed, show only limited items**
+  //If limit is passed, show only limited items
   const itemsToShow = limit ? products.slice(0, limit) : products;
 
   return (

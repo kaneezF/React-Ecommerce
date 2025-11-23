@@ -9,6 +9,7 @@ export default function Home() {
   return (
     <>
       <Banner
+        style={{ backgroundImage: `url(/images/bg-01.jpg` }}   
         pretitle="Casual & Everyday"
         maintitle="Effortlessly blend comfort & style!"
         posttitle="Effortlessly blend comfort and style with our Casual & Everyday collection, featuring cozy sweaters, 
@@ -18,7 +19,6 @@ export default function Home() {
       <BagsSection />
       <Blazers />
       <NewProduct limit={4}/>
-      {/* <Shop/> */}
     </>
   );
 }

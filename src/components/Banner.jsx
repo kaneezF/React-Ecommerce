@@ -29,9 +29,10 @@ export default function Banner({
   showPreTitle = true,
   showPostTitle = true,
   showButton = true,
+  style
 }) {
   return (
-    <div className="container banner">
+    <div className="container banner" style={style}>
       <div className="title">
         {showPreTitle && pretitle && <p className="pre-title">{pretitle}</p>}
         {maintitle && <p className="main-title">{maintitle}</p>}

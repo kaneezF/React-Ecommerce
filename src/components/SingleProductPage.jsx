@@ -161,7 +161,8 @@ export default function SingleProductPage() {
                 <button key={i}>{size}</button>
               ))}
             </div>
-            <div className="colors">
+            {
+              product.colors && product.colors.length > 0 &&( <div className="colors">
               <p className="color-text">Colors:</p>
               {product.colors.map((c, i) => (
                 <span
@@ -173,7 +174,8 @@ export default function SingleProductPage() {
                   }}
                 ></span>
               ))}
-            </div>
+            </div>)
+            }
           </div>
           <hr />
         </div>

@@ -4,8 +4,20 @@ export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
 
-      // 🛒 Cart state here
+      //Cart state here
   const [cart, setCart] = useState([]);
+
+
+// Add to cart explanation
+//   {
+//     cart = [
+//   { id: 1, color: "black", quantity: 1 },   // index 0
+//   { id: 3, color: "red", quantity: 2 },     // index 1
+//   { id: 7, color: "white", quantity: 1 },   // index 2
+// ];
+//   }
+// user adds same product id = 7
+//existingIndex= 2 , updatedCart[2].quantity += quantity
 
   const addToCart = (product, quantity, color) => {
     setCart((prevCart) => {
@@ -41,11 +53,13 @@ const CartProvider = ({ children }) => {
                 quantity: newQuantity,
               };
             }
-            // return unchanged item
+             // return unchanged item
             return item;
           })
-          .filter((item) => item.quantity > 0) // 🔑 removes items with 0 or less
+          .filter((item) => item.quantity > 0) // removes items with 0 or less
     );
+
+    
   };
 
   return (

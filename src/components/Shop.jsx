@@ -4,14 +4,13 @@ import ProductCard from "./ProductCard";
 export default function Shop() {
   return (
     <>
-      <Banner
+      <Banner style={{ backgroundImage: `url(/images/shop-banner.jpg)` }}
         maintitle="Shop Your Favorite Styles Today!"
         showPreTitle={false}
         showPostTitle={false}
         showButton={false}
       />
       <ProductCard/>
-      
     </>
   );
 }
