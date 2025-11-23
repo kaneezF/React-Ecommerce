@@ -1,12 +1,42 @@
-# React + Vite
+React E-Commerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, fully responsive e-commerce website built using React, featuring dynamic product listing, reusable components, routing, and cart functionality. This project follows best practices suitable for frontend development interviews and real-world production apps.
 
-Currently, two official plugins are available:
+🚀 Features
+⭐ UI & Components
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Fully responsive layout (Desktop → Mobile)
 
-## Expanding the ESLint configuration
+Banner section with customizable background images
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Reusable ProductCard component
+
+New arrivals, bags section, blazers section, and homepage sections
+
+Mobile-friendly navbar and clean UI structure
+
+🛒 E-Commerce Functionality
+
+Add to Cart / Remove from Cart
+
+Update product quantity
+
+Color selection with synced URL
+
+Single Product Page (PDP)
+
+Reads selected color from URL using useSearchParams()
+
+Image updates dynamically based on chosen color
+
+Total price calculation on Cart Page
+
+⚙️ Technical Features
+
+Built with React + React Router
+
+State management using Context API
+
+Props-based reusable components
+
+Desktop-first CSS with media queries for mobile
