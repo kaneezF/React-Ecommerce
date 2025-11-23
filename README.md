@@ -1,6 +1,6 @@
 # React E-Commerce Website
 
-A modern, fully responsive e-commerce website built using React, featuring dynamic product listing, reusable components, routing, and cart functionality. This project follows best practices suitable for frontend development interviews and real-world production apps.
+A modern, fully responsive e-commerce website built using React, featuring dynamic product listing, reusable components, routing, and cart functionality.
 
 ---
 
