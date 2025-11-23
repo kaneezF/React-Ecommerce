@@ -87,3 +87,19 @@
   width: 20px;
   text-align: center;
 }
+
+.total-price {
+  font-weight: 400;
+
+  font-family: "Montserrat";
+  text-align: center;
+  font-size: 30px;
+  margin-top: 40px;
+}
+
+@media (max-width: 600px) {
+  .total-price {
+    font-size: 20px;
+    font-weight: 500;
+  }
+}

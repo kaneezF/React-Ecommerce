@@ -5,6 +5,7 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 
 export default function Cart() {
   const { cart, removeFromCart } = useContext(CartContext);
+   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
     <div className="second-title">
@@ -84,7 +85,9 @@ export default function Cart() {
               ))}
             </tbody>
           </table>
+            <div className="total-price">Total Price: ${total}.00</div>
         </div>
+         
       )}
     </div>
   );
