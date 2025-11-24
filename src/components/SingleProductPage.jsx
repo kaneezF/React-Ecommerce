@@ -104,9 +104,10 @@ import { CartContext } from "../context/CartContextProvider";
 
 export default function SingleProductPage() {
   const { id } = useParams(); // Get product ID from URL
-  const [searchParams, setSearchParams] = useSearchParams(); // ✅ Correctly use useSearchParams
+  const [searchParams, setSearchParams] = useSearchParams(); 
   const selectedColor = searchParams.get("color"); // get color query param
   const {addToCart} = useContext(CartContext)
+  const {showNotification} = useContext(CartContext);
 
   const product = products.find((p) => p.id === Number(id));
   if (!product) return <p>Product not found</p>;
@@ -129,6 +130,17 @@ export default function SingleProductPage() {
   };
 
   return (
+    <>
+    {console.log("showNotification =", showNotification)}
+{showNotification && console.log("NOTIFICATION SHOULD BE VISIBLE")}
+
+{showNotification && (
+  <div className="cart-notification">
+    <p>{product.name} added</p>
+  </div>
+)}
+   
+    <div></div>
     <div className="container-product">
       <div className="product-visual">
         {/* Product Images */}
@@ -193,14 +205,14 @@ export default function SingleProductPage() {
           </button>
         </div>
         <div className="add-to-cart">
-          <button className="cart"  onClick={() => addToCart(product, quantity, selectedColor)} >Add to cart</button>
+          <button className="cart"  onClick={() => addToCart(product, quantity, color)} >Add to cart</button>
         </div>
       </div>
-
-      
      <AdditionalInfo product={product} />
     </div>
+     </>
   );
 
   
 }
+

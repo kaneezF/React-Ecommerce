@@ -171,6 +171,38 @@
   font-weight: 500;
 }
 
+.cart-notification {
+  position: fixed;
+    left: 25%;
+  /* bottom: 20px; */
+    background: #9fe58d;
+    color: black;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-size: 20px;
+    z-index: 9999;
+    transform: translateY(20px);
+  animation: slideFade 4s ease-out forwards;
+    margin: 50px auto 0;
+    width: 50%;
+    font-family: "Montserrat", sans-serif;;
+}
+
+/* Smooth Entry + Smooth Exit */
+@keyframes slideFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
 
 
 @media (max-width: 768px) {

@@ -90,15 +90,16 @@
 
 .total-price {
   font-weight: 400;
-
   font-family: "Montserrat";
-  text-align: center;
+  float: right;
   font-size: 30px;
   margin-top: 40px;
 }
 
 @media (max-width: 600px) {
   .total-price {
+    text-align: center;
+    float: none;
     font-size: 20px;
     font-weight: 500;
   }

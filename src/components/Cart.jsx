@@ -2,17 +2,20 @@ import { useContext } from "react";
 import { CartContext } from "../context/CartContextProvider";
 import "./Cart.css";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { IoCartOutline } from "react-icons/io5";
 
 export default function Cart() {
-  const { cart, removeFromCart } = useContext(CartContext);
-   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const { cart, removeFromCar } = useContext(CartContext);
+
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
     <div className="second-title">
       <h2>Your Cart</h2>
-
       {cart.length === 0 ? (
-        <p>🛒 Your cart is empty</p>
+        <p>
+          <IoCartOutline size={40} /> Your cart is empty
+        </p>
       ) : (
         <div className="cart-table-wrapper">
           <table className="cart-table">
@@ -33,9 +36,9 @@ export default function Cart() {
                     <div className="remove-icon">
                       {/* Remove Button */}{" "}
                       <IoIosCloseCircleOutline
-                        onClick={() =>
-                          removeFromCart(item.id, item.color, item.quantity)
-                        }
+                        onClick={() => {
+                          removeFromCart(item.id, item.color, item.quantity);
+                        }}
                       >
                         Remove from cart
                       </IoIosCloseCircleOutline>
@@ -85,9 +88,8 @@ export default function Cart() {
               ))}
             </tbody>
           </table>
-            <div className="total-price">Total Price: ${total}.00</div>
+          <div className="total-price">Total Price: ${total}.00</div>
         </div>
-         
       )}
     </div>
   );

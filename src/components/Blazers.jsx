@@ -1,6 +1,10 @@
 import "./Blazers.css";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Blazers() {
+
+  const navigate = useNavigate();
   return (
     <>
       <div className="blazers">
@@ -16,7 +20,7 @@ export default function Blazers() {
             where tailored sophistication meets modern confidence for a
             powerfully polished office look.
           </p>
-          <button className="shopNow">Shop Now</button>
+          <button className="shopNow" onClick={() => navigate("/shop")}>Shop Now</button>
         </div>
         <div className="blazers-img">
           <img src="/images/blazers.jpg" alt="" />
@@ -34,7 +38,7 @@ export default function Blazers() {
               Dive into a world of style with our latest collection! Shop now
               and redefine your wardrobe narrative!
             </p>
-            <button className="viewCollectionBtn side-btn">View Collection</button>
+            <button className="viewCollectionBtn side-btn" onClick={() => navigate("/shop")}>View Collection</button>
           </div>
         </div>
       </div>

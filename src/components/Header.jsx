@@ -48,7 +48,7 @@ export default function Header() {
         <section className="right">
           <button className="icons">
            <NavLink to={"cart"}><IoCartOutline size={40} /></NavLink> 
-            <span className="cartCount">{cart.length}</span> {/* 🛒 show cart count */}
+            <span className="cartCount">{cart.length}</span> {/*show cart count */}
           </button>
           <button className="icons">
             <IoSearchOutline size={30} />
@@ -72,13 +72,13 @@ export default function Header() {
           <div className="mobile-nav-items">
             <ul className="nav-items">
               <li>
-              <NavLink to={"/"}>Home</NavLink>
+              <NavLink to={"/"} onClick={() => {setisMenuOpen(false)}}>Home</NavLink>
             </li>
             <li>
               <NavLink>About us</NavLink>
             </li>
             <li>
-              <NavLink to={"/shop"}>Shop</NavLink>
+              <NavLink to={"/shop"} onClick={() => {setisMenuOpen(false)}}>Shop</NavLink>
             </li>
             <li>
               <NavLink>Contact us</NavLink>
@@ -87,8 +87,8 @@ export default function Header() {
 
             <section className="mobile-right">
               <button className="mobile-icons">
-               <NavLink to={"cart"}><IoCartOutline size={30} /></NavLink> 
-                <span className="cartCount">{cart.length}</span> {/* 🛒 show cart count */}
+               <NavLink to={"cart"} onClick={() => {setisMenuOpen(false)}}><IoCartOutline size={30} /></NavLink> 
+                <span className="cartCount">{cart.length}</span> {/*show cart count */}
               </button>
               <button className="icons">
                 <IoSearchOutline size={30} />

@@ -21,6 +21,7 @@
 
 // Banner.jsx
 import "./Banner.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Banner({
   maintitle,
@@ -29,17 +30,24 @@ export default function Banner({
   showPreTitle = true,
   showPostTitle = true,
   showButton = true,
-  style
+  style,
 }) {
+  const navigate = useNavigate();
+
   return (
     <div className="container banner" style={style}>
       <div className="title">
         {showPreTitle && pretitle && <p className="pre-title">{pretitle}</p>}
         {maintitle && <p className="main-title">{maintitle}</p>}
-        {showPostTitle && posttitle && <p className="post-title">{posttitle}</p>}
-        {showButton && <button className="viewCollectionBtn">View Collection</button>}
+        {showPostTitle && posttitle && (
+          <p className="post-title">{posttitle}</p>
+        )}
+        {showButton && 
+          <button className="viewCollectionBtn"  onClick={() => navigate("/shop")}>
+             View Collection
+          </button>
+        }
       </div>
     </div>
   );
 }
-

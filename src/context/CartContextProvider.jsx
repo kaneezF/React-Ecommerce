@@ -3,21 +3,20 @@ import { createContext, useState } from "react";
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
-
-      //Cart state here
+  //Cart state here
   const [cart, setCart] = useState([]);
+  const [showNotification, setShowNotification] = useState(false);
 
-
-// Add to cart explanation
-//   {
-//     cart = [
-//   { id: 1, color: "black", quantity: 1 },   // index 0
-//   { id: 3, color: "red", quantity: 2 },     // index 1
-//   { id: 7, color: "white", quantity: 1 },   // index 2
-// ];
-//   }
-// user adds same product id = 7
-//existingIndex= 2 , updatedCart[2].quantity += quantity
+  // Add to cart explanation
+  //   {
+  //     cart = [
+  //   { id: 1, color: "black", quantity: 1 },   // index 0
+  //   { id: 3, color: "red", quantity: 2 },     // index 1
+  //   { id: 7, color: "white", quantity: 1 },   // index 2
+  // ];
+  //   }
+  // user adds same product id = 7
+  //existingIndex= 2 , updatedCart[2].quantity += quantity
 
   const addToCart = (product, quantity, color) => {
     setCart((prevCart) => {
@@ -34,6 +33,11 @@ const CartProvider = ({ children }) => {
         return [...prevCart, { ...product, quantity, color, image }];
       }
     });
+    setShowNotification(false);
+    setTimeout(() => {
+      setShowNotification(true);
+    }, 0);
+    // setTimeout(()=>{setShowNotification(false)}, 2000)
   };
 
   const removeFromCart = (productId, color, action) => {
@@ -59,13 +63,13 @@ const CartProvider = ({ children }) => {
           .filter((item) => item.quantity > 0) // removes items with 0 or less
     );
 
-    
-  };
-
+  }
   return (
-    <CartContext.Provider value = {{cart , addToCart, removeFromCart}}>
-        {children}
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, showNotification}}
+    >
+      {children}
     </CartContext.Provider>
-  )
-}
+  );
+};
 export default CartProvider;

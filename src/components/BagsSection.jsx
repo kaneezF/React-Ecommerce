@@ -1,6 +1,9 @@
-import "./BagsSection.css"
+import "./BagsSection.css";
+import { useNavigate } from "react-router-dom";
 
 export default function BagsSection() {
+
+  const navigate = useNavigate();
   return (
     <>
       <div className="bags-container">
@@ -10,7 +13,7 @@ export default function BagsSection() {
           </div>
           <div className="right-side-text">
             <p className="sec-title">Explore our exquisite Bag Collection now!</p>
-            <button className="side-btn">View Collection</button>
+            <button className="side-btn" onClick={() => navigate("/shop")}>View Collection</button>
           </div>
         </div>
       </div>
