@@ -5,7 +5,7 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 
 export default function Cart() {
-  const { cart, removeFromCar } = useContext(CartContext);
+  const { cart, removeFromCart, showNotification } = useContext(CartContext);
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -37,7 +37,9 @@ export default function Cart() {
                       {/* Remove Button */}{" "}
                       <IoIosCloseCircleOutline
                         onClick={() => {
-                          removeFromCart(item.id, item.color, item.quantity);
+                          {removeFromCart(item.id, item.color, item.quantity);
+                            showNotification("Item removed from cart", "error");
+                          }
                         }}
                       >
                         Remove from cart

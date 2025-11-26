@@ -1,11 +1,11 @@
 import { createContext, useState } from "react";
+import CartNotification from "../components/CartNotification";
 
 export const CartContext = createContext();
 
 const CartProvider = ({ children }) => {
   //Cart state here
   const [cart, setCart] = useState([]);
-  const [showNotification, setShowNotification] = useState(false);
 
   // Add to cart explanation
   //   {
@@ -17,6 +17,13 @@ const CartProvider = ({ children }) => {
   //   }
   // user adds same product id = 7
   //existingIndex= 2 , updatedCart[2].quantity += quantity
+  const [notification, setNotification] = useState(null);
+
+  const showNotification = (msg, type="success") => {
+    setNotification({msg, type});
+    setTimeout(() => setNotification(null), 2000);
+    console.log("TRUE");
+  };
 
   const addToCart = (product, quantity, color) => {
     setCart((prevCart) => {
@@ -33,11 +40,6 @@ const CartProvider = ({ children }) => {
         return [...prevCart, { ...product, quantity, color, image }];
       }
     });
-    setShowNotification(false);
-    setTimeout(() => {
-      setShowNotification(true);
-    }, 0);
-    // setTimeout(()=>{setShowNotification(false)}, 2000)
   };
 
   const removeFromCart = (productId, color, action) => {
@@ -57,18 +59,28 @@ const CartProvider = ({ children }) => {
                 quantity: newQuantity,
               };
             }
-             // return unchanged item
+            // return unchanged item
             return item;
           })
           .filter((item) => item.quantity > 0) // removes items with 0 or less
     );
-
-  }
+    // showNotification("Item removed from cart", "error");
+  };
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, showNotification}}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        showNotification,
+      }}
     >
       {children}
+      {notification && (
+         <div className={`cart-notification ${notification.type}`}>
+          <p>{notification.msg}</p>
+        </div>
+      )}
     </CartContext.Provider>
   );
 };

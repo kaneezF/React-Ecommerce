@@ -1,0 +1,44 @@
+.cart-notification {
+  position: fixed;
+  left: 25%;
+ top: 53px;
+  color: black;
+  padding: 12px 18px;
+  border-radius: 5px;
+  font-size: 20px;
+  z-index: 9999;
+  transform: translateY(20px);
+  animation: slideFade 3s ease-out forwards;
+  margin: 50px auto 0;
+  width: 50%;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Smooth Entry + Smooth Exit */
+@keyframes slideFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+
+ .cart-notification p{
+  text-align: center;
+ }
+
+ .cart-notification.success{
+ background-color: #587d3b70;
+ }
+
+ .cart-notification.error{
+  background-color: #d178787d ;
+ }

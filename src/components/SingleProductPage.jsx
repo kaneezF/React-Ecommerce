@@ -104,10 +104,9 @@ import { CartContext } from "../context/CartContextProvider";
 
 export default function SingleProductPage() {
   const { id } = useParams(); // Get product ID from URL
-  const [searchParams, setSearchParams] = useSearchParams(); 
+  const [searchParams, setSearchParams] = useSearchParams();
   const selectedColor = searchParams.get("color"); // get color query param
-  const {addToCart} = useContext(CartContext)
-  const {showNotification} = useContext(CartContext);
+  const { addToCart, showNotification } = useContext(CartContext);
 
   const product = products.find((p) => p.id === Number(id));
   if (!product) return <p>Product not found</p>;
@@ -115,12 +114,13 @@ export default function SingleProductPage() {
   const [quantity, setQuantity] = useState(1);
   const [color, setColor] = useState(selectedColor || product.colors[0]);
 
- console.log("State color" , color)
+  console.log("State color", color);
   useEffect(() => {
     if (selectedColor) {
       setColor(selectedColor);
     }
-     console.log("selectedColor from URL:", selectedColor);
+
+    console.log("selectedColor from URL:", selectedColor);
   }, [selectedColor]);
   const currentImage = product.images[color];
 
@@ -129,90 +129,85 @@ export default function SingleProductPage() {
     if (quantity > 1) setQuantity((prev) => prev - 1);
   };
 
+
   return (
     <>
-    {console.log("showNotification =", showNotification)}
-{showNotification && console.log("NOTIFICATION SHOULD BE VISIBLE")}
+      <div className="container-product">
+        <div className="product-visual">
+          {/* Product Images */}
+          <div
+            className="product-bg"
+            style={{ backgroundImage: `url(/images/${currentImage})` }}
+          ></div>
+          <div
+            className="product-img"
+            style={{ backgroundImage: `url(/images/${currentImage})` }}
+          ></div>
 
-{showNotification && (
-  <div className="cart-notification">
-    <p>{product.name} added</p>
-  </div>
-)}
-   
-    <div></div>
-    <div className="container-product">
-      <div className="product-visual">
-        {/* Product Images */}
-        <div
-          className="product-bg"
-          style={{ backgroundImage: `url(/images/${currentImage})` }}
-        ></div>
-        <div
-          className="product-img"
-          style={{ backgroundImage: `url(/images/${currentImage})` }}
-        ></div>
-
-        {/* Product Info */}
-        <div className="product-info product-overlay">
-          <div className=" product-name">{product.name}</div>
-          <p className="category product-category">{product.category}</p>
-          <div className="product-div">
-            <p className="description product-desc">{product.description}</p>
-          </div>
-        </div>
-
-        {/* Sizes and Colors */}
-        <div className="product-info product-overlay">
-          <p className="price product-size">${product.price.toFixed(2)}</p>
-          <hr />
-          <div className="color-size">
-            <div className="sizes">
-              <p className="size-text">Sizes:</p>
-              {product.sizes.map((size, i) => (
-                <button key={i}>{size}</button>
-              ))}
+          {/* Product Info */}
+          <div className="product-info product-overlay">
+            <div className=" product-name">{product.name}</div>
+            <p className="category product-category">{product.category}</p>
+            <div className="product-div">
+              <p className="description product-desc">{product.description}</p>
             </div>
-            {
-              product.colors && product.colors.length > 0 &&( <div className="colors">
-              <p className="color-text">Colors:</p>
-              {product.colors.map((c, i) => (
-                <span
-                  key={i}
-                  className={`dot ${c} ${color === c ? "active" : ""}`}
-                  onClick={() => {
-                    setColor(c);
-                    setSearchParams({ color: c });
-                  }}
-                ></span>
-              ))}
-            </div>)
-            }
           </div>
-          <hr />
-        </div>
-      </div>
 
-      {/* Add to Cart + Counter */}
-      <div className="btns">
-        <div className="counter-btn">
-          <button className="counter-symbol" onClick={decreaseQty}>
-            –
-          </button>
-          <span className="counter-display">{quantity}</span>
-          <button className="counter-symbol" onClick={increaseQty}>
-            +
-          </button>
+          {/* Sizes and Colors */}
+          <div className="product-info product-overlay">
+            <p className="price product-size">${product.price.toFixed(2)}</p>
+            <hr />
+            <div className="color-size">
+              <div className="sizes">
+                <p className="size-text">Sizes:</p>
+                {product.sizes.map((size, i) => (
+                  <button key={i}>{size}</button>
+                ))}
+              </div>
+              {product.colors && product.colors.length > 0 && (
+                <div className="colors">
+                  <p className="color-text">Colors:</p>
+                  {product.colors.map((c, i) => (
+                    <span
+                      key={i}
+                      className={`dot ${c} ${color === c ? "active" : ""}`}
+                      onClick={() => {
+                        setColor(c);
+                        setSearchParams({ color: c });
+                      }}
+                    ></span>
+                  ))}
+                </div>
+              )}
+            </div>
+            <hr />
+          </div>
         </div>
-        <div className="add-to-cart">
-          <button className="cart"  onClick={() => addToCart(product, quantity, color)} >Add to cart</button>
+
+        {/* Add to Cart + Counter */}
+        <div className="btns">
+          <div className="counter-btn">
+            <button className="counter-symbol" onClick={decreaseQty}>
+              –
+            </button>
+            <span className="counter-display">{quantity}</span>
+            <button className="counter-symbol" onClick={increaseQty}>
+              +
+            </button>
+          </div>
+          <div className="add-to-cart">
+            <button
+              className="cart"
+              onClick={() => {addToCart(product, quantity, color), showNotification(`${product.name} added to cart` , "success");}}
+            >
+              Add to cart
+            </button>
+          </div>
         </div>
+
+        <AdditionalInfo product={product} />
       </div>
-     <AdditionalInfo product={product} />
-    </div>
-     </>
+    </>
   );
-
-  
 }
 
